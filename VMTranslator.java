@@ -37,6 +37,25 @@ public class VMTranslator {
                     codeWriter.writePushPop(Parser.TYPECOMMAND.C_POP,
                                            parser.arg1(), parser.arg2());
                     break;
+                case C_LABEL:
+                    codeWriter.writeLabel(parser.arg1());
+                    break;
+                case C_GOTO:
+                    codeWriter.writeGoto(parser.arg1());
+                    break;
+                case C_IF:
+                    codeWriter.writeIf(parser.arg1());
+                    break;
+                case C_FUNCTION:
+                    codeWriter.writeFunction(parser.arg1(), parser.arg2());
+                    break;
+                case C_CALL:
+                    codeWriter.writeCall(parser.arg1(), parser.arg2());
+                    break;
+                case C_RETURN:
+                    codeWriter.writeReturn();
+                    break;
+                    
                 default:
                     break;
             }
